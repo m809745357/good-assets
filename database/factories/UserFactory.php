@@ -39,3 +39,22 @@ $factory->define(App\Models\Project::class, function (Faker $faker) {
         'issue' => $faker->paragraph
     ];
 });
+
+$factory->define(App\Models\Tiding::class, function (Faker $faker) {
+    return [
+        'title' => $faker->sentence,
+        'desc' => $faker->paragraph,
+        'image' => $faker->imageUrl,
+        'body' => $faker->text,
+        'order' => 0,
+    ];
+});
+
+$factory->define(App\Models\Property::class, function (Faker $faker) {
+    return [
+        'title' => $faker->sentence,
+        'body' => $faker->paragraph,
+        'image' => $faker->imageUrl,
+        'order' => 0,
+    ];
+});

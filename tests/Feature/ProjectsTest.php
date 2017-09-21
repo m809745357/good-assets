@@ -15,18 +15,16 @@ class ProjectsTest extends TestCase
     {
         $project = factory('App\Models\Project')->create();
 
-        $reponse = $this->get('/projects');
-
-        $reponse->assertSee($project->title);
+        $this->get('/projects')
+            ->assertSee($project->title);
     }
 
     /** @test */
     public function a_user_can_view_project()
     {
         $project = factory('App\Models\Project')->create();
-
-        $reponse = $this->get($project->path());
-
-        $reponse->assertSee($project->title);
+        // dd($project->title);
+        $this->get($project->path())
+            ->assertSee($project->title);
     }
 }

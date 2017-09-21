@@ -17,8 +17,22 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'UserController@index')->name('home');
 
 Route::get('/projects', 'ProjectController@index')->name('projects');
 
 Route::get('/projects/{project}', 'ProjectController@show')->name('project');
+
+Route::get('/tidings', 'TidingController@index')->name('tidings');
+
+Route::get('/tidings/{tiding}', 'TidingController@show')->name('tiding');
+
+Route::get('/properties', 'PropertyController@index')->name('properties');
+
+Route::get('/properties/{property}', 'PropertyController@show')->name('property');
+
+Route::get('/aboutus', 'AboutusController@index')->name('aboutus');
+
+Route::get('/favorites', 'AboutusController@index')->name('favorites');
+
+Route::get('/billings', 'AboutusController@index')->name('billings');

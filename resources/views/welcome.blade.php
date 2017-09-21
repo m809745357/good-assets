@@ -4,13 +4,7 @@
 <img src="/images/top.png" alt="" width="100%">
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
-            <div class="jtwh">
-              <strong>为什么选择我们</strong>
-              <span class="hr"></span>
-              <span>WHY&nbsp;CHOOSE&nbsp;US</span>
-            </div>
-        </div>
+        @include('layouts.title', ['title' => '为什么选择我们', 'desc' => 'WHY&nbsp;CHOOSE&nbsp;US'])
         <div class="col-md-12">
             <div class="col-md-3 op">
                 <div class="cricle">
@@ -41,13 +35,7 @@
                 <p>实时更新项目动态，简单易懂</p>
             </div>
         </div>
-        <div class="col-md-12">
-            <div class="jtwh">
-              <strong>项目介绍</strong>
-              <span class="hr"></span>
-              <span>PROJECT&nbsp;INTRODUCTION</span>
-            </div>
-        </div>
+        @include('layouts.title', ['title' => '项目介绍', 'desc' => 'PROJECT&nbsp;INTRODUCTION'])
         <div class="col-md-12" style="margin-bottom: 2rem">
             <div class="col-md-6">
                 <img src="/images/money.png" width="90%" style="margin-left: 5%">

@@ -41,8 +41,8 @@
                         <li><a href="/">首&nbsp;&nbsp;页</a></li>
                         <li><a href="{{ route('projects') }}">众筹项目</a></li>
                         <li><a href="{{ route('tidings') }}">众筹新闻</a></li>
-                        <li><a href="{{ route('login') }}">股权转让</a></li>
-                        <li><a href="{{ route('login') }}">联系我们</a></li>
+                        <li><a href="{{ route('properties') }}">股权转让</a></li>
+                        <li><a href="{{ route('aboutus') }}">联系我们</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -59,10 +59,15 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
+                                        <a href="{{ route('home') }}">
+                                          个人中心
+                                        </a>
+                                    </li>
+                                    <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            Logout
+                                            注销
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

@@ -4,13 +4,7 @@
 <img src="/images/projects.png" alt="" width="100%">
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
-            <div class="jtwh">
-              <strong>众筹项目</strong>
-              <span class="hr"></span>
-              <span>ALL&nbsp;PROJECT&nbsp;RAISED</span>
-            </div>
-        </div>
+        @include('layouts.title', ['title' => '众筹项目', 'desc' => 'ALL&nbsp;PROJECT&nbsp;RAISED'])
         @foreach ($projects as $project)
           <div class="col-md-4 project">
             <div class="project-img">

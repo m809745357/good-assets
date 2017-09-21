@@ -8352,7 +8352,7 @@ button.close {
 
 body {
   font-family: "Noto Sans CJK SC", "Source Han Sans CN", "Microsoft Yahei";
-  background: #f7f7f7;
+  background: #fff;
 }
 
 .login {
@@ -8387,6 +8387,12 @@ body {
 }
 
 @media (max-width: 992px) {
+  .tiding,
+  .tiding-desc {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
   .login-img {
     height: 100% !important;
     border: none !important;
@@ -8652,6 +8658,13 @@ footer {
           align-items: center;
 }
 
+.aboutus-cricle {
+  border: 1px solid #eeeeee;
+  position: absolute;
+  top: -50px;
+  background-color: #fff;
+}
+
 .op {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -8869,5 +8882,215 @@ footer {
 .tab .change {
   color: #26cda2;
   border: 1px solid #26cda2;
+}
+
+/**
+ * tiding
+ */
+
+.tiding {
+  border: 1px solid #eeeeee;
+  margin-bottom: 23px;
+  color: #343434;
+  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  padding: 0px;
+}
+
+.tiding-img {
+  padding: 0px;
+  height: 150px;
+}
+
+.tiding-img img {
+  height: 150px;
+}
+
+.created_at {
+  color: #aaaaaa;
+}
+
+.tiding-desc .desc {
+  color: #343434;
+}
+
+/**
+ * tiding-detail
+ */
+
+.tiding-detail {
+  margin-top: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.tiding-title {
+  border-left: 3px solid #18cc9f;
+  padding-left: 24px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.flex {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.back {
+  width: 142px;
+  height: 50px;
+  border: 1px solid #dadada;
+  border-radius: 22px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 23px;
+}
+
+.tiding-detail-desc h4 {
+  text-align: center;
+}
+
+.tiding-detail-desc p {
+  text-align: center;
+}
+
+.tiding-body {
+  margin-bottom: 1rem;
+}
+
+/**
+ * property
+ */
+
+.property {
+  margin-bottom: 2rem;
+}
+
+.property-img {
+  height: 270px;
+}
+
+.property-img img {
+  height: 270px;
+}
+
+/**
+ * aboutus
+ */
+
+.aboutus {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.aboutus p {
+  font-size: 16px;
+}
+
+.aboutus span {
+  margin-top: 40px;
+  font-size: 23px;
+  font-weight: 300;
+}
+
+.aboutus-desc {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 280px;
+  border: 1px solid #eeeeee;
+  width: 360px;
+  padding-top: 50px;
+}
+
+/**
+ * menu
+ */
+
+.second-nav {
+  height: 52px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #e6e6e6;
+  width: 100%;
+}
+
+.second-navbar-nav {
+  width: 516px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0;
+}
+
+.second-navbar-nav > li > a {
+  color: #333;
+}
+
+.second-navbar-nav > li > a:hover {
+  color: #fff;
+  padding: 8px;
+  border-radius: 2px;
+  background-color: #17cd9d;
+  text-decoration: none;
+}
+
+.profile-panel {
+  margin: 1rem 0;
+}
+
+.profile {
+  text-align: center;
+  color: #333;
+  font-size: 16px;
+}
+
+.none {
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.gander {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
