@@ -9,7 +9,7 @@ class ProjectController extends Controller
 {
     public function index()
     {
-        $projects = Project::orderBy('status', 'asc')->get();
+        $projects = Project::with('favorites')->orderBy('status', 'asc')->get();
         return view('projects.index', compact('projects'));
     }
 

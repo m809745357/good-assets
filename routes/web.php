@@ -21,6 +21,10 @@ Route::get('/home', 'UserController@index')->name('home');
 
 Route::get('/projects', 'ProjectController@index')->name('projects');
 
+Route::post('/projects/{project}/favorites', 'FavoriteController@store')->name('favorite');
+
+Route::delete('/projects/{project}/favorites', 'FavoriteController@distory')->name('favorite.distory');
+
 Route::get('/projects/{project}', 'ProjectController@show')->name('project');
 
 Route::get('/tidings', 'TidingController@index')->name('tidings');
@@ -33,6 +37,8 @@ Route::get('/properties/{property}', 'PropertyController@show')->name('property'
 
 Route::get('/aboutus', 'AboutusController@index')->name('aboutus');
 
-Route::get('/favorites', 'AboutusController@index')->name('favorites');
+Route::get('/favorites', 'FavoriteController@index')->name('favorites');
 
 Route::get('/billings', 'AboutusController@index')->name('billings');
+
+Route::get('/reset', 'UserController@reset')->name('reset');

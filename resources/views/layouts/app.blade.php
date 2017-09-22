@@ -11,6 +11,13 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <script>
+        window.Laravel = <?php echo json_encode([
+             'app' => \Auth::check() == 1 ? 'ture' : 'false'
+        ]); ?>
+
+    </script>
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>

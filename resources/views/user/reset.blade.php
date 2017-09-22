@@ -13,42 +13,34 @@
     <div class="row">
         <div class="col-md-4 col-md-offset-4 profile">
             <div class="panel panel-default profile-panel">
-                <div class="panel-heading" style="padding: 15px;">个人信息</div>
+                <div class="panel-heading" style="padding: 15px;">修改密码</div>
 
                 <div class="panel-body">
                     <form class="form-horizontal">
                         <div class="form-group">
-                          <label for="username" class="col-md-3 control-label profile-label">用户名</label>
+                          <label for="password-old" class="col-md-3 control-label profile-label">旧的密码</label>
                           <div class="col-md-8">
-                            <input type="text" class="form-control none" id="username" placeholder="请输入用户名">
+                            <input type="password" class="form-control none" id="password-old" placeholder="请输旧的密码">
                           </div>
                         </div>
                         <hr class="profile-hr">
                         <div class="form-group">
-                          <label for="phone" class="col-md-3 control-label profile-label">手机号</label>
+                          <label for="password-new" class="col-md-3 control-label profile-label">新的密码</label>
                           <div class="col-md-8">
-                            <input type="tel" class="form-control none" id="phone" placeholder="请输入手机号">
+                            <input type="password" class="form-control none" id="password-new" placeholder="请输新的密码">
                           </div>
                         </div>
                         <hr class="profile-hr">
                         <div class="form-group">
-                          <label for="gander" class="col-md-3 control-label profile-label">性&nbsp;&nbsp;&nbsp;&nbsp;别</label>
-                          <div class="col-md-8 gander">
-                            <label class="radio-inline">
-                            <input type="radio" id="gender1" name="gander" value="1"> <span>男</span>
-                            </label>
-                            <label class="radio-inline">
-                            <input type="radio" id="gender2" name="gander" value="2"> <span>女</span>
-                            </label>
-                            <label class="radio-inline">
-                            <input type="radio" id="gender3" name="gander" value="3"> <span>保密</span>
-                            </label>
+                          <label for="password-confirm" class="col-md-3 control-label profile-label">重复密码</label>
+                          <div class="col-md-8">
+                            <input type="password" class="form-control none" id="password-confirm" placeholder="请输重复密码">
                           </div>
                         </div>
                         <hr class="profile-hr">
                         <div class="form-group">
                           <div class="col-md-offset-3 col-md-6">
-                            <button type="submit" style="margin: .5rem 0px 1rem;" class="btn btn-default btn-desc btn-block">保存</button>
+                            <button type="submit" style="margin: .5rem 0px 1rem;" class="btn btn-default btn-desc btn-block">修改密码</button>
                           </div>
                         </div>
                     </form>

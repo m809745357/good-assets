@@ -796,8 +796,7 @@ window.Vue = __webpack_require__(35);
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
-Vue.component('example', __webpack_require__(36));
+Vue.component('star', __webpack_require__(36));
 
 var app = new Vue({
   el: '#app',
@@ -41917,9 +41916,9 @@ var Component = __webpack_require__(37)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/home/vagrant/Code/youhe/resources/assets/js/components/Example.vue"
+Component.options.__file = "/home/vagrant/Code/youhe/resources/assets/js/components/Star.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] Example.vue: functional components are not supported with templates, they should use render functions.")}
+if (Component.options.functional) {console.error("[vue-loader] Star.vue: functional components are not supported with templates, they should use render functions.")}
 
 /* hot reload */
 if (false) {(function () {
@@ -41928,9 +41927,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-447312d4", Component.options)
+    hotAPI.createRecord("data-v-22d110d6", Component.options)
   } else {
-    hotAPI.reload("data-v-447312d4", Component.options)
+    hotAPI.reload("data-v-22d110d6", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -42047,22 +42046,41 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    mounted: function mounted() {
-        console.log('Component mounted.');
+    props: ['data'],
+    data: function data() {
+        return {
+            isFavorited: this.data.isFavorited
+        };
+    },
+
+    computed: {
+        imgInit: function imgInit() {
+            return this.isFavorited ? '/images/star.png' : '/images/unstar.png';
+        }
+    },
+    methods: {
+        changeFavorited: function changeFavorited() {
+            if (window.Laravel.app == 'false') {
+                window.location.href = '/login';
+                return false;
+            }
+            this.isFavorited ? this.distory() : this.create();
+        },
+        create: function create() {
+            axios.post(this.path());
+
+            this.isFavorited = true;
+        },
+        distory: function distory() {
+            axios.delete(this.path());
+
+            this.isFavorited = false;
+        },
+        path: function path() {
+            return '/projects/' + this.data.id + '/favorites';
+        }
     }
 });
 
@@ -42071,27 +42089,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _vm._m(0)
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "container"
-  }, [_c('div', {
-    staticClass: "row"
-  }, [_c('div', {
-    staticClass: "col-md-8 col-md-offset-2"
-  }, [_c('div', {
-    staticClass: "panel panel-default"
-  }, [_c('div', {
-    staticClass: "panel-heading"
-  }, [_vm._v("Example Component")]), _vm._v(" "), _c('div', {
-    staticClass: "panel-body"
-  }, [_vm._v("\n                    I'm an example component!\n                ")])])])])])
-}]}
+  return _c('img', {
+    staticClass: "star",
+    attrs: {
+      "src": _vm.imgInit
+    },
+    on: {
+      "click": _vm.changeFavorited
+    }
+  })
+},staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-447312d4", module.exports)
+     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-22d110d6", module.exports)
   }
 }
 

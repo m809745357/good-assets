@@ -1,10 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-<img src="/images/projects.png" alt="" width="100%">
+<div class="second-nav">
+    <ul class="second-navbar-nav">
+        <li><a href="{{ route('home') }}">个人信息</a></li>
+        <li><a href="{{ route('tidings') }}">修改密码</a></li>
+        <li><a href="{{ route('favorites') }}">我的收藏</a></li>
+        <li><a href="{{ route('billings') }}">开票信息</a></li>
+    </ul>
+</div>
 <div class="container">
     <div class="row">
-        @include('layouts.title', ['title' => '众筹项目', 'desc' => 'ALL&nbsp;PROJECT&nbsp;RAISED'])
         @foreach ($projects as $project)
           <div class="col-md-4 project">
             <div class="project-img">
@@ -23,8 +29,7 @@
                 <a href="{{ $project->path() }}" class="btn btn-desc flex">
                   查看详情
                 </a>
-                <star :data="{{ $project }}"></star>
-                {{-- <img src="/images/unstar.png" class="star"> --}}
+                <img src="/images/unstar.png" class="star">
               </div>
             </div>
           </div>
