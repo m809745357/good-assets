@@ -60,3 +60,17 @@ $factory->define(App\Models\Property::class, function (Faker $faker) {
         'order' => 0,
     ];
 });
+
+$factory->define(App\Models\Billing::class, function (Faker $faker) {
+    return [
+        'user_id' => function (){
+            return factory('App\User')->create()->id;
+        },
+        'invoice' => $faker->sentence,
+        'number' => $faker->randomNumber,
+        'address' => $faker->address,
+        'mobile' => $faker->phoneNumber,
+        'bank' => $faker->sentence,
+        'account' => $faker->bankAccountNumber
+    ];
+});

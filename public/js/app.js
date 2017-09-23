@@ -870,7 +870,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(10);
-module.exports = __webpack_require__(54);
+module.exports = __webpack_require__(57);
 
 
 /***/ }),
@@ -903,6 +903,7 @@ Vue.component('flash', __webpack_require__(37));
 Vue.component('star', __webpack_require__(45));
 Vue.component('profile', __webpack_require__(48));
 Vue.component('reset', __webpack_require__(51));
+Vue.component('billing', __webpack_require__(54));
 
 var app = new Vue({
   el: '#app',
@@ -43231,6 +43232,405 @@ if (false) {
 
 /***/ }),
 /* 54 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var Component = __webpack_require__(1)(
+  /* script */
+  __webpack_require__(55),
+  /* template */
+  __webpack_require__(56),
+  /* styles */
+  null,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/home/vagrant/Code/youhe/resources/assets/js/components/Billing.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] Billing.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-57149727", Component.options)
+  } else {
+    hotAPI.reload("data-v-57149727", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 55 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['attributes'],
+    data: function data() {
+        return {
+            billing: {
+                invoice: this.attributes.invoice,
+                number: this.attributes.number,
+                address: this.attributes.address,
+                mobile: this.attributes.mobile,
+                bank: this.attributes.bank,
+                account: this.attributes.account
+            }
+        };
+    },
+    created: function created() {
+        console.log(this.billing);
+    },
+
+
+    methods: {
+        update: function update() {
+            var _this = this;
+
+            axios.patch(this.url(), this.billing).then(function (response) {
+                _this.success();
+            }).catch(function (error) {
+                console.log(error.response.data);
+                _this.error();
+            });
+        },
+        url: function url() {
+            return '/billings/' + this.attributes.id;
+        },
+        success: function success() {
+            var message = {
+                status: 'success',
+                message: '发票信息更新成功！'
+            };
+            flash(message);
+        },
+        fail: function fail() {
+            var message = {
+                status: 'warning',
+                message: '发票信息更新失败！'
+            };
+            flash(message);
+        }
+    }
+
+});
+
+/***/ }),
+/* 56 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "col-md-4 col-md-offset-4 profile"
+  }, [_c('div', {
+    staticClass: "panel panel-default profile-panel"
+  }, [_c('div', {
+    staticClass: "panel-heading",
+    staticStyle: {
+      "padding": "15px"
+    }
+  }, [_vm._v("修改发票")]), _vm._v(" "), _c('div', {
+    staticClass: "panel-body"
+  }, [_c('form', {
+    staticClass: "form-horizontal"
+  }, [_c('div', {
+    staticClass: "form-group"
+  }, [_c('label', {
+    staticClass: "col-md-3 control-label profile-label",
+    attrs: {
+      "for": "invoice"
+    }
+  }, [_vm._v("发票抬头")]), _vm._v(" "), _c('div', {
+    staticClass: "col-md-8"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.billing.invoice),
+      expression: "billing.invoice"
+    }],
+    staticClass: "form-control none",
+    attrs: {
+      "type": "text",
+      "id": "invoice",
+      "placeholder": "请输入发票抬头"
+    },
+    domProps: {
+      "value": (_vm.billing.invoice)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.billing.invoice = $event.target.value
+      }
+    }
+  })])]), _vm._v(" "), _c('hr', {
+    staticClass: "profile-hr"
+  }), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('label', {
+    staticClass: "col-md-3 control-label profile-label",
+    attrs: {
+      "for": "number"
+    }
+  }, [_vm._v("税号")]), _vm._v(" "), _c('div', {
+    staticClass: "col-md-8"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.billing.number),
+      expression: "billing.number"
+    }],
+    staticClass: "form-control none",
+    attrs: {
+      "type": "text",
+      "id": "number",
+      "placeholder": "请输入税号"
+    },
+    domProps: {
+      "value": (_vm.billing.number)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.billing.number = $event.target.value
+      }
+    }
+  })])]), _vm._v(" "), _c('hr', {
+    staticClass: "profile-hr"
+  }), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('label', {
+    staticClass: "col-md-3 control-label profile-label",
+    attrs: {
+      "for": "address"
+    }
+  }, [_vm._v("地址")]), _vm._v(" "), _c('div', {
+    staticClass: "col-md-8"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.billing.address),
+      expression: "billing.address"
+    }],
+    staticClass: "form-control none",
+    attrs: {
+      "type": "text",
+      "id": "address",
+      "placeholder": "请输入地址"
+    },
+    domProps: {
+      "value": (_vm.billing.address)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.billing.address = $event.target.value
+      }
+    }
+  })])]), _vm._v(" "), _c('hr', {
+    staticClass: "profile-hr"
+  }), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('label', {
+    staticClass: "col-md-3 control-label profile-label",
+    attrs: {
+      "for": "mobile"
+    }
+  }, [_vm._v("电话")]), _vm._v(" "), _c('div', {
+    staticClass: "col-md-8"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.billing.mobile),
+      expression: "billing.mobile"
+    }],
+    staticClass: "form-control none",
+    attrs: {
+      "type": "text",
+      "id": "mobile",
+      "placeholder": "请输入电话"
+    },
+    domProps: {
+      "value": (_vm.billing.mobile)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.billing.mobile = $event.target.value
+      }
+    }
+  })])]), _vm._v(" "), _c('hr', {
+    staticClass: "profile-hr"
+  }), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('label', {
+    staticClass: "col-md-3 control-label profile-label",
+    attrs: {
+      "for": "bank"
+    }
+  }, [_vm._v("开户银行")]), _vm._v(" "), _c('div', {
+    staticClass: "col-md-8"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.billing.bank),
+      expression: "billing.bank"
+    }],
+    staticClass: "form-control none",
+    attrs: {
+      "type": "text",
+      "id": "bank",
+      "placeholder": "请输入开户银行"
+    },
+    domProps: {
+      "value": (_vm.billing.bank)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.billing.bank = $event.target.value
+      }
+    }
+  })])]), _vm._v(" "), _c('hr', {
+    staticClass: "profile-hr"
+  }), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('label', {
+    staticClass: "col-md-3 control-label profile-label",
+    attrs: {
+      "for": "account"
+    }
+  }, [_vm._v("银行账号")]), _vm._v(" "), _c('div', {
+    staticClass: "col-md-8"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.billing.account),
+      expression: "billing.account"
+    }],
+    staticClass: "form-control none",
+    attrs: {
+      "type": "text",
+      "id": "account",
+      "placeholder": "请输入银行账号"
+    },
+    domProps: {
+      "value": (_vm.billing.account)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.billing.account = $event.target.value
+      }
+    }
+  })])]), _vm._v(" "), _c('hr', {
+    staticClass: "profile-hr"
+  }), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('div', {
+    staticClass: "col-md-offset-3 col-md-6"
+  }, [_c('button', {
+    staticClass: "btn btn-default btn-desc btn-block",
+    staticStyle: {
+      "margin": ".5rem 0px 1rem"
+    },
+    attrs: {
+      "type": "button"
+    },
+    on: {
+      "click": _vm.update
+    }
+  }, [_vm._v("保存")])])])])])])])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-57149727", module.exports)
+  }
+}
+
+/***/ }),
+/* 57 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

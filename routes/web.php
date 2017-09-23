@@ -39,7 +39,9 @@ Route::get('/aboutus', 'AboutusController@index')->name('aboutus');
 
 Route::get('/favorites', 'FavoriteController@index')->name('favorites');
 
-Route::get('/billings', 'AboutusController@index')->name('billings');
+Route::get('/billings', 'BillingController@index')->name('billings');
+
+Route::patch('/billings/{billing}', 'BillingController@update')->name('billing');
 
 Route::get('/reset', 'UserController@reset')->name('reset');
 

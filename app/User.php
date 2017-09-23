@@ -37,4 +37,17 @@ class User extends Authenticatable
     {
         return $this->hasMany(Models\Favorite::class, 'user_id')->with('favorited');
     }
+
+    public function billing()
+    {
+        return $this->hasOne(Models\Billing::class, 'user_id');
+    }
+
+    public function myBilling() {
+        if (! $this->billing()->exists()) {
+            $this->billing()->create(['user_id' => $this->id]);
+            return $this->billing;
+        }
+        return $this->billing;
+    }
 }
