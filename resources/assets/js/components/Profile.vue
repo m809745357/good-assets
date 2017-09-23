@@ -59,10 +59,31 @@
         },
         methods: {
             update() {
-                axios.patch(this.url(), this.profile);
+                axios.patch(this.url(), this.profile)
+                    .then(response => {
+                        this.success();
+                    })
+                    .catch(error => {
+                        console.log(error.response.data);
+                        this.fail();
+                    });
             },
             url() {
                 return `/users/${this.user.id}`;
+            },
+            success() {
+                let message = {
+                    status: 'success',
+                    message: '个人信息更新成功！'
+                };
+                flash(message);
+            },
+            fail() {
+                let message = {
+                    status: 'warning',
+                    message: '个人信息更新失败！'
+                };
+                flash(message);
             }
         }
     }

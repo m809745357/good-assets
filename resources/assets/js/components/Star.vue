@@ -27,11 +27,23 @@
                 axios.post(this.path());
 
                 this.isFavorited = true;
+
+                let message = {
+                    status: 'success',
+                    message: '添加收藏成功！'
+                };
+                flash(message);
             },
             distory: function (){
                 axios.delete(this.path());
 
                 this.isFavorited = false;
+
+                let message = {
+                    status: 'success',
+                    message: '取消收藏成功！'
+                };
+                flash(message);
             },
             path: function () {
                 return `/projects/${this.data.id}/favorites`;

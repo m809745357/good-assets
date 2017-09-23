@@ -53,14 +53,31 @@
             update() {
                 axios.patch(this.url(), this.reset)
                     .then(response => {
-                        location.href = '/logout';
+                        this.success();
                     })
                     .catch(error => {
                         console.log(error.response.data);
+                        this.fail(error.response.data);
                     });
             },
             url() {
                 return `/users/${this.user.id}`;
+            },
+            success() {
+                let message = {
+                    status: 'success',
+                    message: '密码修改完成，请重新登录！'
+                };
+                flash(message);
+
+                // window.location.href = '/logout';
+            },
+            fail(data) {
+                let message = {
+                    status: 'warning',
+                    message: data.message
+                };
+                flash(message);
             }
         }
     }

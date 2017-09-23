@@ -37,7 +37,11 @@ class UserController extends Controller
             : $this->checkProfile()
         )->save();
 
-        return $user;
+        if ($request->wantsJson()) {
+            return response()->json([
+                'data' => $user
+            ], 201);
+        }
     }
 
     protected function checkProfile()
@@ -54,11 +58,20 @@ class UserController extends Controller
 
     protected function checkPassword()
     {
-        return Hash::check(request('password_old'), auth()->user()->password);
+        $password_old = request('password_old');
+        if (! $password_old) {
+            return true;
+        }
+
+        return Hash::check($password_old, auth()->user()->password);
     }
 
     protected function checkPasswordConfirmed()
     {
+        if (! request('password')) {
+            return false;
+        }
+
         return request()->validate([
             'password' => 'required|confirmed',
         ]);

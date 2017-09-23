@@ -91,6 +91,8 @@
 
         @yield('content')
 
+        <flash data="{{ session('flash') }}"></flash>
+
         <footer>
             <div class="container">
                 <div class="col-md-12">
