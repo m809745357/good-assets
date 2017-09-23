@@ -64,4 +64,19 @@ class FavoritesTest extends TestCase
 
         $this->assertDatabaseMissing('favorites', ['id' => $favorite->id]);
     }
+
+    /** @test */
+    public function an_authenticated_user_can_view_all_favorite()
+    {
+        $user = factory('App\User')->create();
+        $this->actingAs($user);
+
+        $project = factory('App\Models\Project')->create();
+
+        $favorite = $project->favorites()->create(['user_id' => $user->id]);
+
+        $response = $this->get('/favorites');
+
+        $response->assertSee($favorite->favorited->title);
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Project;
+use App\User;
 
 class FavoriteController extends Controller
 {
@@ -14,7 +15,8 @@ class FavoriteController extends Controller
 
     public function index()
     {
-        return view('user.favorites');
+        $favorites = auth()->user()->favorites;
+        return view('user.favorites', compact('favorites'));
     }
 
     public function store(Project $project)

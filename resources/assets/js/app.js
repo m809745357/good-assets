@@ -15,6 +15,8 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 Vue.component('star', require('./components/Star.vue'));
+Vue.component('profile', require('./components/Profile.vue'));
+Vue.component('reset', require('./components/Reset.vue'));
 
 const app = new Vue({
     el: '#app',

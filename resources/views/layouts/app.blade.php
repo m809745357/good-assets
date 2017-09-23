@@ -60,8 +60,8 @@
                             <li><a href="{{ route('register') }}" class="menu-green ml10"><span>注册</span></a></li>
                         @else
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="margin-top: 17.5px;">
+                                    <img src="{{ Auth::user()->headimgurl }}" style="border-radius: 50%"> {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">

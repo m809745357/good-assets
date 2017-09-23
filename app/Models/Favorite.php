@@ -12,4 +12,9 @@ class Favorite extends Model
     {
         return "/favorites/" . $this->id;
     }
+
+    public function favorited()
+    {
+        return $this->morphTo();
+    }
 }

@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'mobile', 'mobile', 'gender', 'headimgurl'
     ];
 
     /**
@@ -26,4 +26,15 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function path()
+    {
+
+        return 'users/' . $this->id;
+    }
+
+    public function favorites()
+    {
+        return $this->hasMany(Models\Favorite::class, 'user_id')->with('favorited');
+    }
 }

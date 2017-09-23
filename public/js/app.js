@@ -797,6 +797,8 @@ window.Vue = __webpack_require__(35);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 Vue.component('star', __webpack_require__(36));
+Vue.component('profile', __webpack_require__(50));
+Vue.component('reset', __webpack_require__(57));
 
 var app = new Vue({
   el: '#app',
@@ -42112,6 +42114,578 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 41 */,
+/* 42 */,
+/* 43 */,
+/* 44 */,
+/* 45 */,
+/* 46 */,
+/* 47 */,
+/* 48 */,
+/* 49 */,
+/* 50 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var Component = __webpack_require__(37)(
+  /* script */
+  __webpack_require__(51),
+  /* template */
+  __webpack_require__(56),
+  /* styles */
+  null,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/home/vagrant/Code/youhe/resources/assets/js/components/Profile.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] Profile.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-5c2bb755", Component.options)
+  } else {
+    hotAPI.reload("data-v-5c2bb755", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 51 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['user'],
+    data: function data() {
+        return {
+            profile: {
+                name: this.user.name,
+                mobile: this.user.mobile,
+                gender: this.user.gender
+            }
+        };
+    },
+
+    methods: {
+        update: function update() {
+            axios.patch(this.url(), this.profile);
+        },
+        url: function url() {
+            return '/users/' + this.user.id;
+        }
+    }
+});
+
+/***/ }),
+/* 52 */,
+/* 53 */,
+/* 54 */,
+/* 55 */,
+/* 56 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "col-md-4 col-md-offset-4 profile"
+  }, [_c('div', {
+    staticClass: "panel panel-default profile-panel"
+  }, [_c('div', {
+    staticClass: "panel-heading",
+    staticStyle: {
+      "padding": "15px"
+    }
+  }, [_vm._v("个人信息")]), _vm._v(" "), _c('div', {
+    staticClass: "panel-body"
+  }, [_c('form', {
+    staticClass: "form-horizontal"
+  }, [_c('div', {
+    staticClass: "form-group"
+  }, [_c('label', {
+    staticClass: "col-md-3 control-label profile-label",
+    attrs: {
+      "for": "username"
+    }
+  }, [_vm._v("用户名")]), _vm._v(" "), _c('div', {
+    staticClass: "col-md-8"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.profile.name),
+      expression: "profile.name"
+    }],
+    staticClass: "form-control none",
+    attrs: {
+      "type": "text",
+      "id": "username",
+      "placeholder": "请输入用户名"
+    },
+    domProps: {
+      "value": (_vm.profile.name)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.profile.name = $event.target.value
+      }
+    }
+  })])]), _vm._v(" "), _c('hr', {
+    staticClass: "profile-hr"
+  }), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('label', {
+    staticClass: "col-md-3 control-label profile-label",
+    attrs: {
+      "for": "phone"
+    }
+  }, [_vm._v("手机号")]), _vm._v(" "), _c('div', {
+    staticClass: "col-md-8"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.profile.mobile),
+      expression: "profile.mobile"
+    }],
+    staticClass: "form-control none",
+    attrs: {
+      "type": "tel",
+      "id": "phone",
+      "placeholder": "请输入手机号"
+    },
+    domProps: {
+      "value": (_vm.profile.mobile)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.profile.mobile = $event.target.value
+      }
+    }
+  })])]), _vm._v(" "), _c('hr', {
+    staticClass: "profile-hr"
+  }), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('label', {
+    staticClass: "col-md-3 control-label profile-label",
+    attrs: {
+      "for": "gender"
+    }
+  }, [_vm._v("性    别")]), _vm._v(" "), _c('div', {
+    staticClass: "col-md-8 gender"
+  }, [_c('label', {
+    staticClass: "radio-inline"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.profile.gender),
+      expression: "profile.gender"
+    }],
+    attrs: {
+      "type": "radio",
+      "id": "gender1",
+      "name": "gender",
+      "value": "1"
+    },
+    domProps: {
+      "checked": _vm._q(_vm.profile.gender, "1")
+    },
+    on: {
+      "__c": function($event) {
+        _vm.profile.gender = "1"
+      }
+    }
+  }), _vm._v(" "), _c('span', [_vm._v("男")])]), _vm._v(" "), _c('label', {
+    staticClass: "radio-inline"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.profile.gender),
+      expression: "profile.gender"
+    }],
+    attrs: {
+      "type": "radio",
+      "id": "gender2",
+      "name": "gender",
+      "value": "2"
+    },
+    domProps: {
+      "checked": _vm._q(_vm.profile.gender, "2")
+    },
+    on: {
+      "__c": function($event) {
+        _vm.profile.gender = "2"
+      }
+    }
+  }), _vm._v(" "), _c('span', [_vm._v("女")])]), _vm._v(" "), _c('label', {
+    staticClass: "radio-inline"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.profile.gender),
+      expression: "profile.gender"
+    }],
+    attrs: {
+      "type": "radio",
+      "id": "gender3",
+      "name": "gender",
+      "value": "3"
+    },
+    domProps: {
+      "checked": _vm._q(_vm.profile.gender, "3")
+    },
+    on: {
+      "__c": function($event) {
+        _vm.profile.gender = "3"
+      }
+    }
+  }), _vm._v(" "), _c('span', [_vm._v("保密")])])])]), _vm._v(" "), _c('hr', {
+    staticClass: "profile-hr"
+  }), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('div', {
+    staticClass: "col-md-offset-3 col-md-6"
+  }, [_c('button', {
+    staticClass: "btn btn-default btn-desc btn-block",
+    staticStyle: {
+      "margin": ".5rem 0px 1rem"
+    },
+    attrs: {
+      "type": "button"
+    },
+    on: {
+      "click": _vm.update
+    }
+  }, [_vm._v("保存")])])])])])])])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-5c2bb755", module.exports)
+  }
+}
+
+/***/ }),
+/* 57 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var Component = __webpack_require__(37)(
+  /* script */
+  __webpack_require__(58),
+  /* template */
+  __webpack_require__(59),
+  /* styles */
+  null,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/home/vagrant/Code/youhe/resources/assets/js/components/Reset.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] Reset.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-3295dcfb", Component.options)
+  } else {
+    hotAPI.reload("data-v-3295dcfb", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 58 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['user'],
+    data: function data() {
+        return {
+            reset: {
+                password_old: '',
+                password: '',
+                password_confirmation: ''
+            }
+        };
+    },
+
+    methods: {
+        update: function update() {
+            axios.patch(this.url(), this.reset).then(function (response) {
+                location.href = '/logout';
+            }).catch(function (error) {
+                console.log(error.response.data);
+            });
+        },
+        url: function url() {
+            return '/users/' + this.user.id;
+        }
+    }
+});
+
+/***/ }),
+/* 59 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "col-md-4 col-md-offset-4 profile"
+  }, [_c('div', {
+    staticClass: "panel panel-default profile-panel"
+  }, [_c('div', {
+    staticClass: "panel-heading",
+    staticStyle: {
+      "padding": "15px"
+    }
+  }, [_vm._v("修改密码")]), _vm._v(" "), _c('div', {
+    staticClass: "panel-body"
+  }, [_c('form', {
+    staticClass: "form-horizontal"
+  }, [_c('div', {
+    staticClass: "form-group"
+  }, [_c('label', {
+    staticClass: "col-md-3 control-label profile-label",
+    attrs: {
+      "for": "password-old"
+    }
+  }, [_vm._v("旧的密码")]), _vm._v(" "), _c('div', {
+    staticClass: "col-md-8"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.reset.password_old),
+      expression: "reset.password_old"
+    }],
+    staticClass: "form-control none",
+    attrs: {
+      "type": "password",
+      "id": "password-old",
+      "placeholder": "请输旧的密码"
+    },
+    domProps: {
+      "value": (_vm.reset.password_old)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.reset.password_old = $event.target.value
+      }
+    }
+  })])]), _vm._v(" "), _c('hr', {
+    staticClass: "profile-hr"
+  }), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('label', {
+    staticClass: "col-md-3 control-label profile-label",
+    attrs: {
+      "for": "password-new"
+    }
+  }, [_vm._v("新的密码")]), _vm._v(" "), _c('div', {
+    staticClass: "col-md-8"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.reset.password),
+      expression: "reset.password"
+    }],
+    staticClass: "form-control none",
+    attrs: {
+      "type": "password",
+      "id": "password-new",
+      "placeholder": "请输新的密码"
+    },
+    domProps: {
+      "value": (_vm.reset.password)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.reset.password = $event.target.value
+      }
+    }
+  })])]), _vm._v(" "), _c('hr', {
+    staticClass: "profile-hr"
+  }), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('label', {
+    staticClass: "col-md-3 control-label profile-label",
+    attrs: {
+      "for": "password-confirm"
+    }
+  }, [_vm._v("重复密码")]), _vm._v(" "), _c('div', {
+    staticClass: "col-md-8"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.reset.password_confirmation),
+      expression: "reset.password_confirmation"
+    }],
+    staticClass: "form-control none",
+    attrs: {
+      "type": "password",
+      "id": "password-confirm",
+      "placeholder": "请输重复密码"
+    },
+    domProps: {
+      "value": (_vm.reset.password_confirmation)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.reset.password_confirmation = $event.target.value
+      }
+    }
+  })])]), _vm._v(" "), _c('hr', {
+    staticClass: "profile-hr"
+  }), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('div', {
+    staticClass: "col-md-offset-3 col-md-6"
+  }, [_c('button', {
+    staticClass: "btn btn-default btn-desc btn-block",
+    staticStyle: {
+      "margin": ".5rem 0px 1rem"
+    },
+    attrs: {
+      "type": "button"
+    },
+    on: {
+      "click": _vm.update
+    }
+  }, [_vm._v("修改密码")])])])])])])])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-3295dcfb", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

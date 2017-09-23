@@ -1,35 +1,28 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="second-nav">
-    <ul class="second-navbar-nav">
-        <li><a href="{{ route('home') }}">个人信息</a></li>
-        <li><a href="{{ route('tidings') }}">修改密码</a></li>
-        <li><a href="{{ route('favorites') }}">我的收藏</a></li>
-        <li><a href="{{ route('billings') }}">开票信息</a></li>
-    </ul>
-</div>
+@include('user.menu')
 <div class="container">
-    <div class="row">
-        @foreach ($projects as $project)
+    <div class="row" style="margin-top: 1rem">
+        @foreach ($favorites as $favorite)
           <div class="col-md-4 project">
             <div class="project-img">
-              <img src="{{ $project->image }}" width="100%">
-              @if ($project->isCompleteChips())
+              <img src="{{ $favorite->favorited->image }}" width="100%">
+              @if ($favorite->favorited->isCompleteChips())
                 <span class="icon over">已结束</span>
               @else
                 <span class="icon">募集中</span>
               @endif
             </div>
             <div class="project-desc">
-              <h4 class="title">{{ $project->title }}</h4>
-              <p class="desc">{{ $project->desc }}</p>
-              <p class="money">目标金额：BTC{{ $project->money }}</p>
+              <h4 class="title">{{ $favorite->favorited->title }}</h4>
+              <p class="desc">{{ $favorite->favorited->desc }}</p>
+              <p class="money">目标金额：BTC{{ $favorite->favorited->money }}</p>
               <div class="project-desc-button">
-                <a href="{{ $project->path() }}" class="btn btn-desc flex">
+                <a href="{{ $favorite->favorited->path() }}" class="btn btn-desc flex">
                   查看详情
                 </a>
-                <img src="/images/unstar.png" class="star">
+                <star :data="{{ $favorite->favorited }}"></star>
               </div>
             </div>
           </div>
