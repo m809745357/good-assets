@@ -44,6 +44,6 @@ class AuthController extends Controller
             'name' => $this->weixinUser->nickname,
             'headimgurl' => $this->weixinUser->headimgurl,
             'gender' => $this->weixinUser->sex
-        ])->save() :
+        ])->save();
     }
 }
