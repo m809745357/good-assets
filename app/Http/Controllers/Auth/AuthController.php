@@ -8,6 +8,10 @@ use App\User;
 
 class AuthController extends Controller
 {
+    protected $weixinUser;
+
+    protected $where;
+
     public function oauth(Request $request)
     {
         return \Socialite::with('weixin')->redirect();
@@ -19,23 +23,27 @@ class AuthController extends Controller
 
         dump($oauthUser->user);
 
-        Auth::login($this->createWechatUser($oauthUser->user));
+        $this->weixinUser = $oauthUser->user;
+
+        $this->where = array('unionid' => $this->weixinUser->unionid);
+
+        Auth::login(
+            User::where($this->where)->exists()
+            ? $this->createWechatUser()
+            : User::where($this->where)->get()
+        );
 
         return redirect('/home');
     }
 
-    protected function createWechatUser($weixinUser)
+    protected function createWechatUser()
     {
-        if ($user = User::where(['unionid' => $weixinUser->unionid])->exists()) {
-            $user = User::fill([
-                'openid' => $weixinUser->openid,
-                'unionid' => $weixinUser->unionid,
-                'name' => $weixinUser->nickname,
-                'headimgurl' => $weixinUser->headimgurl,
-                'gender' => $weixinUser->sex
-            ])->save();
-        }
-
-        return $user;
+        return User::fill([
+            'openid' => $this->weixinUser->openid,
+            'unionid' => $this->weixinUser->unionid,
+            'name' => $this->weixinUser->nickname,
+            'headimgurl' => $this->weixinUser->headimgurl,
+            'gender' => $this->weixinUser->sex
+        ])->save() :
     }
 }
