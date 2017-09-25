@@ -25,6 +25,7 @@ Vue.component('star', require('./components/Star.vue'));
 Vue.component('profile', require('./components/Profile.vue'));
 Vue.component('reset', require('./components/Reset.vue'));
 Vue.component('billing', require('./components/Billing.vue'));
+Vue.component('baidumap', require('./components/BaiduMap.vue'));
 
 const app = new Vue({
     el: '#app',

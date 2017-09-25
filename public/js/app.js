@@ -870,7 +870,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(10);
-module.exports = __webpack_require__(57);
+module.exports = __webpack_require__(60);
 
 
 /***/ }),
@@ -904,6 +904,7 @@ Vue.component('star', __webpack_require__(45));
 Vue.component('profile', __webpack_require__(48));
 Vue.component('reset', __webpack_require__(51));
 Vue.component('billing', __webpack_require__(54));
+Vue.component('baidumap', __webpack_require__(57));
 
 var app = new Vue({
   el: '#app',
@@ -43631,6 +43632,116 @@ if (false) {
 
 /***/ }),
 /* 57 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var Component = __webpack_require__(1)(
+  /* script */
+  __webpack_require__(58),
+  /* template */
+  __webpack_require__(59),
+  /* styles */
+  null,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+Component.options.__file = "/home/vagrant/Code/youhe/resources/assets/js/components/BaiduMap.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] BaiduMap.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-6b7daa45", Component.options)
+  } else {
+    hotAPI.reload("data-v-6b7daa45", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 58 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    created: function created() {
+        console.log(123123123);
+        var that = this;
+        setTimeout(function () {
+            that.getMap();
+        }, 3000);
+    },
+
+
+    methods: {
+        getMap: function getMap() {
+            // 百度地图API功能
+            var map = new BMap.Map("map");
+            var point = new BMap.Point(116.417854, 39.921988);
+            var marker = new BMap.Marker(point); // 创建标注
+            map.addOverlay(marker); // 将标注添加到地图中
+            map.centerAndZoom(point, 15);
+            var opts = {
+                width: 200, // 信息窗口宽度
+                height: 100, // 信息窗口高度
+                title: "海底捞王府井店", // 信息窗口标题
+                enableMessage: true, //设置允许信息窗发送短息
+                message: "亲耐滴，晚上一起吃个饭吧？戳下面的链接看下地址喔~"
+            };
+            var infoWindow = new BMap.InfoWindow("地址：北京市东城区王府井大街88号乐天银泰百货八层", opts); // 创建信息窗口对象
+            marker.addEventListener("click", function () {
+                map.openInfoWindow(infoWindow, point); //开启信息窗口
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 59 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "col-md-12",
+    staticStyle: {
+      "height": "536px",
+      "margin": "2rem 0"
+    },
+    attrs: {
+      "id": "map"
+    }
+  })
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-6b7daa45", module.exports)
+  }
+}
+
+/***/ }),
+/* 60 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
