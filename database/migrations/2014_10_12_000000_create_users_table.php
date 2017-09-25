@@ -20,6 +20,8 @@ class CreateUsersTable extends Migration
             $table->string('headimgurl', 500);
             $table->tinyinteger('gender')->default(0);
             $table->string('mobile', '11')->nullable();
+            $table->string('openid')->nullable();
+            $table->string('unionid')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

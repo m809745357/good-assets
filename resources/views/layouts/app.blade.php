@@ -98,11 +98,11 @@
                 <div class="col-md-12">
                     <div class="col-md-8 menu-box">
                         <ul class="menu">
-                            <li><a href="{{ route('login') }}">首&nbsp;&nbsp;页</a></li>
-                            <li><a href="{{ route('login') }}">众筹项目</a></li>
-                            <li><a href="{{ route('login') }}">众筹新闻</a></li>
-                            <li><a href="{{ route('login') }}">股权转让</a></li>
-                            <li><a href="{{ route('login') }}">联系我们</a></li>
+                            <li><a href="/">首&nbsp;&nbsp;页</a></li>
+                            <li><a href="{{ route('projects') }}">众筹项目</a></li>
+                            <li><a href="{{ route('tidings') }}">众筹新闻</a></li>
+                            <li><a href="{{ route('properties') }}">股权转让</a></li>
+                            <li><a href="{{ route('aboutus') }}">联系我们</a></li>
                         </ul>
                         <p>
                           地址：浙江省杭州市拱墅区祥园路88号智慧信息产业园M座10楼

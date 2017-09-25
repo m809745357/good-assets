@@ -46,3 +46,9 @@ Route::patch('/billings/{billing}', 'BillingController@update')->name('billing')
 Route::get('/reset', 'UserController@reset')->name('reset');
 
 Route::patch('/users/{user}', 'UserController@update')->name('user.update');
+
+# 用户点击登录按钮时请求的地址
+Route::get('/auth/oauth', 'Auth\AuthController@oauth');
+
+# 微信接口回调地址
+Route::get('/auth/callback', 'Auth\AuthController@callback');

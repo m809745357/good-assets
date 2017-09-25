@@ -167,6 +167,11 @@ return [
         /*
          * Package Service Providers...
          */
+         # 注意：如果你之前已经安装了 laravel/socialite，则务必删除掉下面的配置
+         // 删除这行配置 Laravel\Socialite\SocialiteServiceProvider::class,
+
+         # 新增配置
+         \SocialiteProviders\Manager\ServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -225,7 +230,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
     ],
 
 ];
