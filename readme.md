@@ -2,7 +2,7 @@
 
 - 产品名称：「优合资产」
 - 项目代码：good-assets
-- 官方地址：http://weishijie.mandokg.com
+- 官方地址：http://youhe.mandokg.com
 
 该项目为官网项目
 
