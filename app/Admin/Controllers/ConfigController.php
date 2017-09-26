@@ -80,7 +80,9 @@ class ConfigController extends Controller
 
             $grid->value('值');
 
-            $grid->description('描述');
+            $grid->description('描述')->display(function($text) {
+                return str_limit($text, 100, '...');
+            });
 
             $grid->created_at();
             $grid->updated_at();

@@ -14,4 +14,10 @@ Route::group([
 
     $router->resource('/configs', ConfigController::class);
 
+    $router->resource('/projects', ProjectController::class);
+
+    $router->resource('/tidings', TidingController::class);
+
+    $router->resource('/properties', PropertyController::class);
+
 });

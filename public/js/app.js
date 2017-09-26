@@ -43684,8 +43684,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['latitude', 'longitude', 'address', 'title'],
     created: function created() {
-        console.log(123123123);
         var that = this;
         setTimeout(function () {
             that.getMap();
@@ -43697,18 +43697,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         getMap: function getMap() {
             // 百度地图API功能
             var map = new BMap.Map("map");
-            var point = new BMap.Point(116.417854, 39.921988);
+            var point = new BMap.Point(this.latitude, this.longitude);
             var marker = new BMap.Marker(point); // 创建标注
             map.addOverlay(marker); // 将标注添加到地图中
             map.centerAndZoom(point, 15);
             var opts = {
                 width: 200, // 信息窗口宽度
                 height: 100, // 信息窗口高度
-                title: "海底捞王府井店", // 信息窗口标题
-                enableMessage: true, //设置允许信息窗发送短息
-                message: "亲耐滴，晚上一起吃个饭吧？戳下面的链接看下地址喔~"
+                title: this.title // 信息窗口标题
             };
-            var infoWindow = new BMap.InfoWindow("地址：北京市东城区王府井大街88号乐天银泰百货八层", opts); // 创建信息窗口对象
+            var infoWindow = new BMap.InfoWindow("地址：" + this.address, opts); // 创建信息窗口对象
             marker.addEventListener("click", function () {
                 map.openInfoWindow(infoWindow, point); //开启信息窗口
             });

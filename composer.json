@@ -11,6 +11,7 @@
         "laravel/framework": "5.5.*",
         "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0",
+        "orangehill/iseed": "^2.5",
         "socialiteproviders/weixin": "^4.0"
     },
     "require-dev": {

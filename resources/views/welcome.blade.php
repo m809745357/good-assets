@@ -38,10 +38,10 @@
         @include('layouts.title', ['title' => '项目介绍', 'desc' => 'PROJECT&nbsp;INTRODUCTION'])
         <div class="col-md-12" style="margin-bottom: 2rem">
             <div class="col-md-6">
-                <img src="/images/money.png" width="90%" style="margin-left: 5%">
+                <img src="/uploads/{{ $configs['project']['value'] }}" width="90%" style="margin-left: 5%">
             </div>
             <div class="col-md-6 posts">
-                <p>现阶段汽车已经普及，是千家万户的必备固定资产之一，客户资料室大数据的重要组成部分，汽车变现快，购销流动性强，该行业是目前金融行业必争之地。杭州忧合资产管理有限公司以投资整合二手车行业为切入口，策划对接英豪、信托、基金、保险、证券等金融机构，首批以全国二手车车商和二手车企业为共同发起人，筹建霍尔果斯股权投资股份有限公司（注册地：霍尔果斯）线上线下相结合的金融平台。进一步以普惠金融的思想，用传感技术‘视频识别技术、无线网罗技术和嵌入式设备技术等核心科技打造具有互联网基因的股权投资平台</p>
+                {!! $configs['project']['description'] !!}
             </div>
         </div>
     </div>

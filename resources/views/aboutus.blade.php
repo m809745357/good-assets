@@ -11,8 +11,8 @@
                     <img src="/images/address.png" alt="">
                 </div>
                 <div class="aboutus-desc">
-                    <h3>联系地址</h3>
-                    <p>为新手更快了解市场，稳健投资</p>
+                    <h3>{{ $configs['address']['description'] }}</h3>
+                    <p style="height: 2em;margin: 0 10%;">{{ $configs['address']['value'] }}</p>
                     <span class="label label-default">Address</span>
                 </div>
             </div>
@@ -21,8 +21,8 @@
                     <img src="/images/phone.png" alt="">
                 </div>
                 <div class="aboutus-desc">
-                    <h3>联系电话</h3>
-                    <p>18367831980</p>
+                    <h3>{{ $configs['mobile']['description'] }}</h3>
+                    <p style="height: 2em;margin: 0 10%;">{{ $configs['mobile']['value'] }}</p>
                     <span class="label label-default">Phone</span>
                 </div>
             </div>
@@ -31,13 +31,19 @@
                     <img src="/images/email.png" alt="">
                 </div>
                 <div class="aboutus-desc">
-                    <h3>邮箱地址</h3>
-                    <p>company@huishuit.com</p>
+                    <h3>{{ $configs['email']['description'] }}</h3>
+                    <p style="height: 2em;margin: 0 10%;">{{ $configs['email']['value'] }}</p>
                     <span class="label label-default">Email</span>
                 </div>
             </div>
         </div>
-        <baidumap></baidumap>
+        <baidumap
+            latitude="{{ $configs['latitude']['value'] }}"
+            longitude="{{ $configs['longitude']['value'] }}"
+            title="{{ config('app.name') }}"
+            address="{{ $configs['address']['value'] }}">
+
+        </baidumap>
     </div>
 </div>
 @endsection

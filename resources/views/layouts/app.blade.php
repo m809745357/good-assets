@@ -106,20 +106,20 @@
                             <li><a href="{{ route('aboutus') }}">联系我们</a></li>
                         </ul>
                         <p>
-                          地址：浙江省杭州市拱墅区祥园路88号智慧信息产业园M座10楼
+                          地址：{{ $configs['address']['value'] }}
                           <br/>
-                          电话：400-125-2366&nbsp;&nbsp;邮箱：sjx@163.com
+                          电话：{{ $configs['mobile']['value'] }}&nbsp;&nbsp;邮箱：{{ $configs['email']['value'] }}
                         </p>
                     </div>
 
                     <div class="col-md-3 col-md-offset-1 menu-qrcode">
                         <div class="qrcode">
-                          <img src="/images/wechat.png" alt="">
-                          <p>公众号二维码</p>
+                          <img src="/uploads/{{ $configs['weixinpay']['value'] }}" alt="">
+                          <p>{{ $configs['weixinpay']['description'] }}</p>
                         </div>
                         <div class="qrcode">
-                          <img src="/images/pay.png" alt="">
-                          <p>支付宝二维码</p>
+                          <img src="/uploads/{{ $configs['alipay']['value'] }}" alt="">
+                          <p>{{ $configs['alipay']['description'] }}</p>
                         </div>
                     </div>
                 </div>
