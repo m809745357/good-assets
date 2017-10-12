@@ -129,7 +129,7 @@
                 </div>
 
                 <div class="col-md-12 legal">
-                  Copyright &copy; 2017 Copyright Holder All Rights Reserved.
+                  Copyright &copy; 2017 Copyright Holder All Rights Reserved.浙ICP备17041835号-1
                 </div>
             </div>
         </footer>
