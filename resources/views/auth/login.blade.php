@@ -81,7 +81,7 @@
                             <div class="col-md-12" style="text-align: center">
                                 <p>……第三方账号登录……</p>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12" onclick="window.location.href='/auth/oauth'">
                                 <div class="wechat-login">
                                     <img src="/images/wechat-icon.png" alt="">
                                     <p>微信登录</p>

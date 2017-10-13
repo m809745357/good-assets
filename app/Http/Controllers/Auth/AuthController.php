@@ -21,29 +21,30 @@ class AuthController extends Controller
     {
         $oauthUser = \Socialite::with('weixin')->user();
 
-        dump($oauthUser->user);
+       	//dd($oauthUser->user);
 
-        $this->weixinUser = $oauthUser->user;
+        $weixinUser = $oauthUser->user;
 
-        $this->where = array('unionid' => $this->weixinUser->unionid);
-
-        Auth::login(
-            User::where($this->where)->exists()
-            ? $this->createWechatUser()
-            : User::where($this->where)->get()
+	//dd($this->createWechatUser());
+	//dd(User::where($this->where)->exists());	
+        \Auth::login(
+            User::where('unionid', $weixinUser['unionid'])->exists()
+            ? User::where('unionid', $weixinUser['unionid'])->first()
+            : $this->createWechatUser($weixinUser)
         );
 
         return redirect('/home');
     }
 
-    protected function createWechatUser()
+    protected function createWechatUser($weixinUser)
     {
-        return User::fill([
-            'openid' => $this->weixinUser->openid,
-            'unionid' => $this->weixinUser->unionid,
-            'name' => $this->weixinUser->nickname,
-            'headimgurl' => $this->weixinUser->headimgurl,
-            'gender' => $this->weixinUser->sex
-        ])->save();
+        return User::create([
+            'openid' => $weixinUser['openid'],
+            'unionid' => $weixinUser['unionid'],
+            'name' => $weixinUser['nickname'],
+            'headimgurl' => $weixinUser['headimgurl'],
+	    'gender' => $weixinUser['sex'],
+	    'password' => bcrypt('password')
+        ]);
     }
 }
